@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.StringIdGenerator;
 import com.helloworld.beans.*;
 
 /**
@@ -24,7 +23,7 @@ public class HelloWorldController {
     @GetMapping(value = "/")
     public String helloWorld() {
         // return "Hello World Restcontroller";
-        return "Hello World";
+        return "<h1>Hello World</h1>";
     }
 
     @GetMapping(value = "/hello-world-bean")

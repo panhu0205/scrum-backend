@@ -9,6 +9,12 @@ public class User {
     private String name;
     private Date birthDate;
 
+    public User(int id, String name, Date birthDate) {
+        this.id = id;
+        this.name = name;
+        this.birthDate = birthDate;
+    }
+
     public Integer getId() {
         return this.id;
     }
