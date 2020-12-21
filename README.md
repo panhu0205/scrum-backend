@@ -8,3 +8,7 @@
 ## 20-12-2020
 
 - Tìm hiểu tạo api trả về json
+
+## 21-12-2020
+
+- Tìm hiểu cách để handle exception và trả về đúng status code
