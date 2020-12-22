@@ -1,8 +1,6 @@
-package com.helloworld.beans;
+package com.user.beans;
 
 import java.util.Date;
-
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.StringIdGenerator;
 
 public class User {
     private Integer id;

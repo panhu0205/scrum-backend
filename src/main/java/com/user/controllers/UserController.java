@@ -1,11 +1,12 @@
-package com.helloworld.controllers;
+package com.user.controllers;
 
 import java.net.URI;
 import java.util.List;
 
+import com.exceptions.IDNotAcceptedException;
 import com.exceptions.UserNotFoundException;
-import com.helloworld.beans.User;
-import com.helloworld.dao.UserDAOService;
+import com.user.beans.User;
+import com.user.dao.UserDAOService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,9 @@ public class UserController {
      */
     @PostMapping("/users")
     public ResponseEntity<Object> createUser(@RequestBody User user) {
+        if (user.getId() < 0) {
+            throw new IDNotAcceptedException("fuck you" + user.getId());
+        }
         User newUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newUser.getId())

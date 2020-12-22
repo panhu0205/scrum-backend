@@ -12,3 +12,7 @@
 ## 21-12-2020
 
 - Tìm hiểu cách để handle exception và trả về đúng status code
+
+## 22-12-2020
+
+- Tìm hiểu cách để handle exception và trả về đúng status code (cont.)

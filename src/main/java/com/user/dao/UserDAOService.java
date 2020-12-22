@@ -1,10 +1,10 @@
-package com.helloworld.dao;
+package com.user.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.helloworld.beans.User;
+import com.user.beans.User;
 
 import org.springframework.stereotype.Component;
 
@@ -24,7 +24,7 @@ public class UserDAOService {
     }
 
     public User save(User user) {
-        if (user.getId() == 0) {
+        if (user.getId() == null) {
             user.setId(++usersCount);
         }
         users.add(user);
