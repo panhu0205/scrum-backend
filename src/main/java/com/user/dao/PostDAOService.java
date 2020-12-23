@@ -1,7 +1,6 @@
 package com.user.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.user.beans.Post;
@@ -13,16 +12,13 @@ import org.springframework.stereotype.Component;
 public class PostDAOService {
     private static List<Post> posts = new ArrayList<>();
 
-    private static int postsCount = 7;
+    private static int postsCount = 4;
 
     static {
         posts.add(new Post(1, "I love Alice", 1));
-        posts.add(new Post(2, "I love Alice really much", 1));
-        posts.add(new Post(3, "I love Alice a lot", 2));
-        posts.add(new Post(4, "I love Alice more than John", 2));
-        posts.add(new Post(5, "I love Alice like I love drugs", 2));
-        posts.add(new Post(6, "I love Alice and that's it", 2));
-        posts.add(new Post(7, "I love John", 3));
+        posts.add(new Post(2, "I love Alice a lot", 1));
+        posts.add(new Post(3, "I love Bob", 2));
+        posts.add(new Post(4, "I love John", 3));
     }
 
     public List<Post> findAll() {

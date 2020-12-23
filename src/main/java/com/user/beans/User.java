@@ -1,11 +1,13 @@
 package com.user.beans;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer id;
     private String name;
     private Date birthDate;
+    private List<Post> posts;
 
     public User(int id, String name, Date birthDate) {
         this.id = id;
@@ -25,6 +27,10 @@ public class User {
         return this.birthDate;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -35,6 +41,10 @@ public class User {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     @Override
