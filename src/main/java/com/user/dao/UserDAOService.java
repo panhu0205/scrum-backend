@@ -2,6 +2,7 @@ package com.user.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import com.user.beans.Post;
@@ -41,7 +42,7 @@ public class UserDAOService {
     }
 
     public User save(User user) {
-        if (user.getId() == null) {
+        if (user.getId() == 0) {
             user.setId(++usersCount);
         }
         users.add(user);
@@ -51,6 +52,18 @@ public class UserDAOService {
     public User findOne(int id) {
         for (User user : users) {
             if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User deleteByID(int id) {
+        Iterator<User> userIterator = users.iterator();
+        while (userIterator.hasNext()) {
+            User user = userIterator.next();
+            if (user.getId() == id) {
+                userIterator.remove();
                 return user;
             }
         }
