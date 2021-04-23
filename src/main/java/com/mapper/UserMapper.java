@@ -1,6 +1,5 @@
 package com.mapper;
 
-import com.dto.UserDto;
 import com.form.user.CreateUserForm;
 import com.model.User;
 
@@ -11,17 +10,6 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper {
-    
-    // @Mapping(source = "userUsername", target = "username")
-    // @Mapping(source = "userFirstName", target = "firstName")
-    // @Mapping(source = "userLastName", target = "lastName")
-    // @Mapping(source = "userPhoneNumber", target = "phoneNumber")
-    // @Mapping(source = "userDob", target = "dob")
-    // @Mapping(source = "userVehiclesType", target = "vehiclesType")
-    // @Mapping(source = "userVehiclesNumber", target = "vehiclesNumber")
-    // User fromDtotoEntity (UserDto userDto);
-
-        
     @Mapping(source = "username", target = "username")
     @Mapping(source = "password", target = "password")
     @Mapping(source = "firstName", target = "firstName")
@@ -29,5 +17,5 @@ public interface UserMapper {
     @Mapping(source = "phoneNumber", target = "phoneNumber")
     @Mapping(source = "vehiclesType", target = "vehiclesType")
     @Mapping(source = "vehiclesNumber", target = "vehiclesNumber")
-    User fromCreateFormToEntity (CreateUserForm createUserForm);
+    User fromCreateFormToEntity(CreateUserForm createUserForm);
 }

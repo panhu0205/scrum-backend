@@ -5,42 +5,36 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "ShipperUser")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
-public class User{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "username")
     private String username;
-        
-    @Column( name = "Password")
+
+    @Column(name = "Password")
     private String password;
 
-    @Column( name = "FirstName")
+    @Column(name = "FirstName")
     private String firstName;
-    
-    @Column( name = "LastName")
+
+    @Column(name = "LastName")
     private String lastName;
-    
-    @Column( name = "PhoneNumber")
+
+    @Column(name = "PhoneNumber")
     private String phoneNumber;
-    
-    @Column( name = "VehiclesType")
+
+    @Column(name = "VehiclesType")
     private String vehiclesType;
-    
-    @Column( name = "VehiclesNumber")
+
+    @Column(name = "VehiclesNumber")
     private String vehiclesNumber;
 
-    @Column(name= "StartPoint")
-    private String startPoint;
-
-    @Column(name= "EndPoint")
-    private String endPoint;
 }

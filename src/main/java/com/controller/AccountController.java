@@ -13,26 +13,25 @@ import com.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/account")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AccountController {
 
     @Autowired
     UserRepository userRepository;
-
 
     @Autowired
     UserMapper userMapper;
 
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ApiMessageDto<LoginDto> login(@Valid @RequestBody LoginForm loginForm, BindingResult bindingResult) {
-
 
         ApiMessageDto<LoginDto> apiMessageDto = new ApiMessageDto<>();
         User user = userRepository.findAccountByUsername(loginForm.getUsername());
@@ -45,16 +44,16 @@ public class AccountController {
         LoginDto loginDto = new LoginDto();
         loginDto.setId(user.getId());
         loginDto.setUsername(loginForm.getUsername());
-        loginDto.setStartPoint(user.getStartPoint());
         apiMessageDto.setData(loginDto);
         apiMessageDto.setMessage("Login account success");
-        //update lastLogin
+        // update lastLogin
         return apiMessageDto;
 
     }
 
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ApiMessageDto<String> Register (@Valid @RequestBody CreateUserForm createUserForm, BindingResult bindingResult) {
+    public ApiMessageDto<String> Register(@Valid @RequestBody CreateUserForm createUserForm,
+            BindingResult bindingResult) {
         ApiMessageDto<String> apiMessageDto = new ApiMessageDto<>();
         User user = userRepository.findAccountByUsername(createUserForm.getUsername());
         if (user != null) {
@@ -66,7 +65,5 @@ public class AccountController {
         userRepository.save(userMapper.fromCreateFormToEntity(createUserForm));
         apiMessageDto.setMessage("Create account admin success");
         return apiMessageDto;
-
     }
-
 }
